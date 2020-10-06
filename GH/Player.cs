@@ -26,15 +26,8 @@ public class Player : MonoBehaviour
     void Update()
     {
 		if(Input.GetKey(KeyCode.Z)){
-			Fire();
+			//Fire();
 		}
-        //
-		
     }
 	
-	void Fire(){
-		GameObject bullet = Instantiate(bulletObjA, transform.position, transform.rotation);
-		Rigidbody2D rigid = bullet.GetComponent<Rigidbody2D>();
-		rigid.AddForce(Vector2.right * 10, ForceMode2D.Impulse);
-	}
 }
