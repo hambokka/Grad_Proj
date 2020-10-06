@@ -25,9 +25,7 @@ public class Player : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-		if(Input.GetKey(KeyCode.Z)){
-			//Fire();
-		}
+		//transform.Rotate(0, 0, 360 * Time.deltaTime);
     }
 	
 }

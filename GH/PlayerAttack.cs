@@ -24,7 +24,7 @@ public class PlayerAttack : MonoBehaviour
     }
 	
 	void Fire(){
-		Instantiate(bulletObjA, pos.position, transform.rotation);
+		Instantiate(bulletObjA, transform.position, transform.rotation);
 		//GameObject bullet = Instantiate(bulletObjA, transform.position, transform.rotation);
 		//Rigidbody2D rigid = bullet.GetComponent<Rigidbody2D>();
 		//rigid.AddForce(transform.right * 10, ForceMode2D.Impulse);
