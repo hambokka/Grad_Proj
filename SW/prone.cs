@@ -6,6 +6,7 @@ public class prone : MonoBehaviour
 {
     public Sprite[] stand;
     public Sprite[] pronesprite;
+    public Sprite[] crouch;
     private BoxCollider2D boxCollider;
     private SpriteRenderer renderer;
 
@@ -25,6 +26,12 @@ public class prone : MonoBehaviour
             boxCollider.size = new Vector2(0.836f, 0.3f);
             boxCollider.offset = new Vector2(0f, 0f);
             renderer.sprite = pronesprite[0];
+        }
+
+        else if(Input.GetKey(KeyCode.C))
+        {
+            boxCollider.size = new Vector2(0.3f, 0.6f);
+            renderer.sprite = crouch[0];
         }
 
         else
