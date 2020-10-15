@@ -8,11 +8,12 @@ public class Fire : MonoBehaviour
     public Transform pos;
     public float cooltime;
     private float curtime;
+    bool right = true;
 
     // Start is called before the first frame update
     void Start()
     {
-        
+
     }
 
     // Update is called once per frame
@@ -21,12 +22,22 @@ public class Fire : MonoBehaviour
         Shoot();
     }
 
-    void Shoot() {
+    void Shoot()
+    {
         Vector2 len = Camera.main.ScreenToWorldPoint(Input.mousePosition) - transform.position;
-        float z = Mathf.Atan2(len.y, len.x)* Mathf.Rad2Deg;
+        float z = Mathf.Atan2(len.y, len.x) * Mathf.Rad2Deg;
         transform.rotation = Quaternion.Euler(0, 0, z);
 
-        if (Input.GetMouseButton(0))
+        Vector3 localscail = Vector3.one;
+        if (z > 90 || z < -90)
+            localscail.y = -1f;
+        else
+            localscail.y = 1f;
+
+        transform.localScale = localscail;
+
+
+        if (Input.GetMouseButtonDown(0))
             Instantiate(bulletobj, pos.position, transform.rotation);
     }
 }
