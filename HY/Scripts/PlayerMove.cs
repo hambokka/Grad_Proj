@@ -43,8 +43,11 @@ public class PlayerMove : MonoBehaviour
         // Jump
         if (Input.GetButtonDown("Jump") && Mathf.Abs(rigid.velocity.y) < 0.01f)
         {
-            rigid.AddForce(Vector2.up * jumpPower, ForceMode2D.Impulse);
-            isGrounded = false;
+            if(isStand == true)
+            {
+                rigid.AddForce(Vector2.up * jumpPower, ForceMode2D.Impulse);
+                isGrounded = false;
+            }
         }
 
         // Stop Speed
