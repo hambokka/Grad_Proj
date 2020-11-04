@@ -1,4 +1,4 @@
-﻿using System.Collections;
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Tilemaps;
@@ -10,7 +10,8 @@ public class layeredTrigger : MonoBehaviour
     
     bool isOutside = true;
     public GameObject player;
-    public GameObject terrain;
+    public GameObject insideTerrain;
+    public GameObject outsideDeco;
     // Start is called before the first frame update
     public void Start()
     {
@@ -32,14 +33,16 @@ public class layeredTrigger : MonoBehaviour
             //collision off
             //GetComponent<TilemapCollider2D>().enabled = false;
             
-                Physics2D.IgnoreCollision(player.GetComponent<Collider2D>(), terrain.GetComponent<Collider2D>(),true);
+            Physics2D.IgnoreCollision(player.GetComponent<Collider2D>(), insideTerrain.GetComponent<Collider2D>(),true);
+            outsideDeco.GetComponent<TilemapRenderer>().enabled = true;
         }
         else
         {
             //collision on
             //GetComponent<TilemapCollider2D>().enabled = true;
             
-                Physics2D.IgnoreCollision(player.GetComponent<Collider2D>(), terrain.GetComponent<Collider2D>(), false);
+            Physics2D.IgnoreCollision(player.GetComponent<Collider2D>(), insideTerrain.GetComponent<Collider2D>(), false);
+            outsideDeco.GetComponent<TilemapRenderer>().enabled = false;
         }
     }
 }
